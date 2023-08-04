@@ -1,0 +1,113 @@
+<div class="container card rounded shadow p-3 mt-5">
+    <form class="row" [formGroup]="formVeiculo">
+        <div class="col-md-8">
+            <div class="p-2">
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" placeholder="Insira o Nome" name="nome" id="nome"
+                            formControlName="nome" required [ngClass]="cssValidator(formControl.nome)">
+
+                        <div *ngIf="formControl.nome.errors?.required" class="invalid-feedback">
+                            Nome é obrigatório
+                        </div>
+
+                        <div *ngIf="formControl.nome.errors?.maxlength" class="invalid-feedback">
+                            Nome deve ter no maximo 50 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="form-group col-md-6">
+
+                        <label>Marca</label>
+                        <input type="text" class="form-control" placeholder="Insira a marca" name="marca" id="marca"
+                            formControlName="marca" required [ngClass]="cssValidator(formControl.marca)">
+
+                        <div *ngIf="formControl.marca.errors?.required" class="invalid-feedback">
+                            Marca é obrigatório
+                        </div>
+
+                        <div *ngIf="formControl.marca.errors?.maxlength" class="invalid-feedback">
+                            Marca deve ter no maximo 50 caracteres
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Modelo</label>
+                        <input type="text" class="form-control" placeholder="Insira o modelo" name="modelo" id="modelo"
+                            formControlName="modelo" required [ngClass]="cssValidator(formControl.modelo)">
+
+                        <div *ngIf="formControl.modelo.errors?.required" class="invalid-feedback">
+                            Modelo é obrigatório
+                        </div>
+
+                        <div *ngIf="formControl.modelo.errors?.maxlength" class="invalid-feedback">
+                            Modelo deve ter no maximo 50 caracteres
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="form-group col-md-6">
+                        <label>Valor</label>
+                        <input type="number" class="form-control" placeholder="Insira o valor" name="valor" id="valor"
+                            formControlName="valor" [ngClass]="cssValidator(formControl.valor)">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Quilometragem</label>
+                        <input type="number" class="form-control" placeholder="Insira a quilometragem"
+                            name="quilometragem" id="quilometragem" formControlName="quilometragem"
+                            [ngClass]="cssValidator(formControl.quilometragem)">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="form-group col-md-12">
+                        <label>Informações Adicionais</label>
+                        <input type="textarea" class="form-control" name="informacoesAdicionais"
+                            id="informacoesAdicionais" formControlName="informacoesAdicionais"
+                            [ngClass]="cssValidator(formControl.informacoesAdicionais)">
+
+                        <div *ngIf="formControl.informacoesAdicionais.errors?.maxlength" class="invalid-feedback">
+                            O campo deve ter no maximo 200 caracteres
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <button class="btn btn-outline-secondary mr-auto border" (click)="resetForm()">
+                    Cancelar Alteração
+                </button>
+                <button class="btn btn-success" [disabled]="!formVeiculo.valid" (click)="onSubmit()">
+                    Salvar
+                </button>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div [formGroup]="formVeiculo" class="card-evento-view shadow-sm">
+                <div class="form-row">
+                    <div class="form-group m-0">
+                        <input type="file" #file (change)="onFileChange($event)" class="form-control is-invalid"
+                            placeholder="" style="display: none">
+                    </div>
+                </div>
+                <div class="card profile-card-2">
+                    <div class="card-img-block">
+                        <img class="image" [src]="imagemURL" (click)="file.click()" class="img-fluid"
+                            alt="Card image cap" placement="bottom" />
+                    </div>
+                    <div class="card-body pt-3">
+                        <p class="text-danger text-center">Para cadastrar um novo veiculo, faça o upload da imagem
+                            primeiro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+</div>

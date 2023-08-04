@@ -1,0 +1,13 @@
+.form-veiculo {
+    border-radius: 30px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-fluid {
+    cursor: pointer;
+}

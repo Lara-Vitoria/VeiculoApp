@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row justify-content-center mt-2" *ngIf="veiculos && veiculos.length">
+        <div class="col-md-4" *ngFor="let veiculo of veiculosFiltrados">
+            <div class="card rounded shadow-sm card-veiculo" (click)="detalheVeiculo(veiculo.id)">
+                <img class="card-img-top" [src]="mostraImg(veiculo.imagemURL)" alt="Imagem de capa do card"
+                    [style.width.px]="190" [style.height.px]="140">
+                <div class="card-body">
+                    <hr>
+                    <h5 class="card-title text-center">{{veiculo.nome}}</h5>
+                    <p class="card-text text-center">
+                        Carro {{veiculo.nome}} da marca {{veiculo.marca}} e modelo {{veiculo.modelo}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-2" *ngIf="!veiculos.length">
+        <h4>Nenhum veiculo encontrado</h4>
+    </div>
+
+</div>

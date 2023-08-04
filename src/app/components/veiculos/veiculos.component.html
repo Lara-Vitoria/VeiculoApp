@@ -1,0 +1,59 @@
+<div class="rounded bg-success shadow-sm p-3">
+    <div class="container">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <mat-icon>search</mat-icon>
+                </span>
+            </div><!--[(ngModel)]="filtroLista"-->
+            <input type="text" class="form-control mr-2" placeholder="Buscar por marca, modelo, nome...">
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+<!-- 
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+
+    <tbody *ngIf="veiculos && veiculos.length">
+        <tr *ngFor="let veiculo of veiculosFiltrados">
+            <td>{{veiculo.id}}</td>
+            <td>
+                <img src="/assets/{{ veiculo.imagemURL }}" [style.width.px]="50">
+            </td>
+            <td>{{veiculo.nome}}</td>
+            <td>{{veiculo.marca}}</td>
+            <td>{{veiculo.modelo}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm mr-2">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button class="btn btn-danger btn-sm">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+
+    <tfoot *ngIf="!veiculos.length">
+        <tr>
+            <td colspan="8" class="text-center">
+                <h4>Nenhum veiculo encontrado</h4>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+-->
